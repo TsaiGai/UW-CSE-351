@@ -1,0 +1,33 @@
+*****************************
+* Lab 5 Synthesis Questions *
+*****************************
+Name(s): Ian Tsai 
+NetID(s): itsai2
+
+
+-----------------------------------------------------------
+1) Alignment: 16 bytes
+   Reasoning: When adding a malloc statement with 24 as the
+   argument, the start address of class_grades ends in
+   0x6d0. When the argument is changed to 25, the address
+   ends in 0x6e0. This means the address of the allocated
+   block changes by 16 bytes. Since the address seems to
+   be changing by a constant amount of bytes, the constant
+   is most likely the alignment of the heap, which is 16.
+
+
+-----------------------------------------------------------
+2) Boundary Tag Size: 8 bytes 
+   Reasoning: In a simple implementation, the allocator
+   requires at least 8 bytes for the boundary tag size. Based
+   on malloc, using arguments 1 to 24 all give the same
+   address ending, meaning that the minimum size of the block
+   is greater than 24. Since the alignment is 16 bytes based 
+   on the previous question, the minimum size of the block is 
+   therefore 32 bytes (next multiple of 16 larger than 24). The 
+   boundary tag can therefore be calculated to have 32 - 24 = 8 
+   bytes, which aligns with the simple implementation requirement.
+
+
+
+-----------------------------------------------------------
